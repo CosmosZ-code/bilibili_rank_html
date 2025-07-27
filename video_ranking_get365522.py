@@ -137,7 +137,7 @@ class BilibiliCrawler:
             bvid: 视频的BV号
         
         Returns:
-            dict: {'play_count': 播放量, 'danmaku_count': 弹幕数}
+            dict: {'play_count_num':播放量数值, 'danmaku_count_num': 弹幕数值, 'play_count': 播放量, 'danmaku_count': 弹幕数}
         """
         params = {
             'bvid': bvid,
@@ -147,12 +147,14 @@ class BilibiliCrawler:
             data = response.json()
             if data['code'] == 0:
                 return {
+                    'play_count_num': data['data']['stat']['view'],
+                    'danmaku_count_num': data['data']['stat']['danmaku'],
                     'play_count': self.convert_number_to_count(data['data']['stat']['view']),
                     'danmaku_count': self.convert_number_to_count(data['data']['stat']['danmaku'])
                 }
-            return {'play_count': "0", 'danmaku_count': "0"}
+            return {'play_count_num':0, 'danmaku_count_num':0, 'play_count': "0", 'danmaku_count': "0"}
         except:
-            return {'play_count': "0", 'danmaku_count': "0"}
+            return {'play_count_num':0, 'danmaku_count_num':0, 'play_count': "0", 'danmaku_count': "0"}
 
     def display_ranking(self):
         # 按在线人数排序
@@ -185,6 +187,8 @@ class BilibiliCrawler:
                 'pic': item['pic'],
                 'online_count': online_count,
                 'count_num': count_num,
+                'play_count_num': video_stats['play_count_num'],
+                'danmaku_count_num': video_stats['danmaku_count_num'],
                 'play_count': video_stats['play_count'],
                 'danmaku_count': video_stats['danmaku_count'],
             }

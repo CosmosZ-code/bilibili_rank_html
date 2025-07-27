@@ -435,6 +435,12 @@
                 <span class="b-head-t">观看列表</span>
                 <span class="b-head-desc">根据稿件网页端的观看情况，定时更新</span>
             </div>
+            <div style="display: flex; align-items: center; gap: 10px; margin-left: 20px;">
+                <label for="percent-range" style="font-size: 14px; color: #333;">过滤等级：</label>
+                <input type="range" id="percent-range" min="0" max="100" value="15" style="width: 180px;">
+                <span id="percent-value"
+                    style="font-size: 14px; color: #333; min-width: 40px; text-align: right;">15%</span>
+            </div>
             <input type="text" class="search-box" placeholder="搜索视频标题或UP主...">
         </div>
 
@@ -472,6 +478,11 @@
         const videoContainer = document.getElementById('video-container');
         const sortButtons = document.querySelectorAll('.sort-btn');
         const searchBox = document.querySelector('.search-box');
+
+        // 过滤控制条相关
+        const percentRange = document.getElementById('percent-range');
+        const percentValue = document.getElementById('percent-value');
+        let purifyPercent = 15;
 
         // 存储视频数据
         let videosData = [];
@@ -552,15 +563,23 @@
 
         // 过滤视频
         function filterVideos() {
-            if (!searchTerm) {
-                return videosData;
+            finishFilterVideos = videosData;
+            // 文本搜索视频
+            if (searchTerm) {
+                const term = searchTerm.toLowerCase();
+                finishFilterVideos = videosData.filter(video =>
+                    video.title.toLowerCase().includes(term) ||
+                    video.owner.toLowerCase().includes(term)
+                );
             }
-
-            const term = searchTerm.toLowerCase();
-            return videosData.filter(video =>
-                video.title.toLowerCase().includes(term) ||
-                video.owner.toLowerCase().includes(term)
-            );
+            // 过滤等级
+            if (purifyPercent > 0) {
+                finishFilterVideos = finishFilterVideos.filter(video =>
+                    video.danmaku_count_num > 10000 ||
+                    video.danmaku_count_num * 66 >= video.play_count_num * purifyPercent / 100
+                );
+            }
+            return finishFilterVideos;
         }
 
         // 渲染视频列表
@@ -626,6 +645,13 @@
             renderVideos();
         });
 
+        // 过滤等级
+        percentRange.addEventListener('input', (e) => {
+            purifyPercent = Number(e.target.value);
+            percentValue.textContent = purifyPercent + '%';
+            renderVideos();
+        });
+
         // 初始加载数据
         loadData();
 
@@ -649,5 +675,3 @@
     </script>
 
 </body>
-
-</html>
