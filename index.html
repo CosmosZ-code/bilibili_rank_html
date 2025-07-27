@@ -160,10 +160,6 @@
                 grid-template-columns: repeat(2, 1fr) !important;
                 gap: 12px !important;
             }
-
-            .top-nav {
-                display: none !important;
-            }
         }
 
         .header-banner__inner {
@@ -439,7 +435,7 @@
                 <label for="percent-range" style="font-size: 14px; color: #333;">过滤等级：</label>
                 <input type="range" id="percent-range" min="0" max="100" value="15" style="width: 180px;">
                 <span id="percent-value"
-                    style="font-size: 14px; color: #333; min-width: 40px; text-align: right;">15%</span>
+                    style="font-size: 14px; color: #333; min-width: 40px; text-align: right;">20%</span>
             </div>
             <input type="text" class="search-box" placeholder="搜索视频标题或UP主...">
         </div>
@@ -482,7 +478,7 @@
         // 过滤控制条相关
         const percentRange = document.getElementById('percent-range');
         const percentValue = document.getElementById('percent-value');
-        let purifyPercent = 15;
+        let purifyPercent = 20;
 
         // 存储视频数据
         let videosData = [];
@@ -675,3 +671,5 @@
     </script>
 
 </body>
+
+</html>
