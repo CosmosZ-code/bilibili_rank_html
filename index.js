@@ -3,9 +3,9 @@ const lerp = (start, end, amt) => (1 - amt) * start + amt * end; // 计算线性
 
 import barnersData from './config.js'
 let allImagesData = barnersData[Math.floor(Math.random()*12)].data
-let layers = []; // DOM集合
 
 let compensate = 0; // 视窗补偿值
+let layers = []; // DOM集合
 
 // document.getElementById("selectBox").addEventListener("click", (e) => {
   // const setData = barnersData[+e.target.id];
@@ -15,7 +15,64 @@ let compensate = 0; // 视窗补偿值
   // layers = [];
   // initItems();
 // });
+function randomBanner() {
+  const setData = barnersData[Math.floor(Math.random()*12)];
+  if (!setData) return;
+  allImagesData = setData.data;
+  body.innerHTML = "";
+  layers = [];
+  initItems();
+}
 
+// 添加图片元素
+function initItems() {
+  compensate = window.innerWidth > 1650 ? window.innerWidth / 1650 : 1;
+  if (layers.length <= 0) {
+    const cloneData = JSON.parse(JSON.stringify(allImagesData))
+    body.style.display = "none";
+    for (let i = 0; i < cloneData.length; i++) {
+      const item = cloneData[i];
+      const layer = document.createElement("div");
+      layer.classList.add("layer");
+      if (compensate !== 1) {
+        item.transform[4]= item.transform[4]*compensate
+        item.transform[5]= item.transform[5]*compensate
+      }
+      layer.style = "transform:" + new DOMMatrix(item.transform);
+      item.opacity && (layer.style.opacity = item.opacity[0]);
+      const child = document.createElement(item.tagName || 'img');
+      if (item.tagName === 'video') {
+        child.loop=true; child.autoplay=true; child.muted=true;
+      }
+      child.src = item.src;
+      child.style.filter = `blur(${item.blur}px)`;
+      child.style.width = `${item.width * compensate}px`;
+      child.style.height = `${item.height * compensate}px`;
+      layer.appendChild(child);
+      body.appendChild(layer);
+    }
+    body.style.display = "";
+    layers = document.querySelectorAll(".layer");
+  } else {
+    // 窗口大小变动时重新计算内容
+    const cloneData = JSON.parse(JSON.stringify(allImagesData))
+    for (let i = 0; i < layers.length; i++) {
+      const item = cloneData[i];
+      layers[i].firstElementChild.style.width = `${
+        item.width * compensate
+      }px`;
+      layers[i].firstElementChild.style.height = `${
+        item.height * compensate
+      }px`;
+      item.transform[4]= item.transform[4]*compensate
+      item.transform[5]= item.transform[5]*compensate
+      layers[i].style.transform = new DOMMatrix(item.transform)
+      const [a, b, c, d, tx, ty] = item.transform;
+      layers[i].style.transform = `matrix(${a}, ${b}, ${c}, ${d}, ${tx}, ${ty})`;
+    }
+  }
+}
+initItems();
 
 let initX = 0;
 let moveX = 0;
