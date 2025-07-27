@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,26 +8,26 @@
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./normalize.css">
     <script type="module" src="./index.js"></script>
-	<style>
+    <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Microsoft YaHei', sans-serif;
         }
-		
+
         body {
             background-color: #fff;
             color: #333;
             --padding: 20px;
         }
-        
+
         .container {
-			margin-top: 5px;
+            margin-top: 5px;
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         header {
             text-align: left;
             margin-bottom: 30px;
@@ -36,46 +37,47 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        
+
         h1 {
             font-size: 28px;
             margin-bottom: 10px;
         }
-        
+
         .subtitle {
-			margin-top: 20px;
+            margin-top: 20px;
             font-size: 14px;
-			color: #222222;
-			font-weight: bold;
+            color: #222222;
+            font-weight: bold;
             opacity: 0.8;
         }
-        
+
         .controls {
             display: flex;
             justify-content: space-between;
             align-items: center;
-			margin-top: 20px;
+            margin-top: 20px;
             margin-bottom: 20px;
             flex-wrap: wrap;
-			border-top: 1px solid #e5e9ef;
-			border-bottom: 1px solid #e5e9ef;
+            border-top: 1px solid #e5e9ef;
+            border-bottom: 1px solid #e5e9ef;
         }
-		
-        .b-head-t{
-			font-size: 18px;
-			color: #222222;
-		}
-		
-		.b-head-desc{
-			font-size: 13px;
-			color: #99a2aa;
-		}
+
+        .b-head-t {
+            font-size: 18px;
+            color: #222222;
+        }
+
+        .b-head-desc {
+            font-size: 13px;
+            color: #99a2aa;
+        }
+
         .sort-options {
             display: flex;
             gap: 10px;
             margin: 10px 0;
         }
-        
+
         .sort-btn {
             background-color: #fff;
             border: 1px solid #ddd;
@@ -84,13 +86,14 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        
-        .sort-btn:hover, .sort-btn.active {
+
+        .sort-btn:hover,
+        .sort-btn.active {
             background-color: #fb7299;
             color: white;
             border-color: #fb7299;
         }
-        
+
         .search-box {
             padding: 8px 15px;
             border: 1px solid #ddd;
@@ -109,6 +112,7 @@
             position: relative;
             z-index: 100;
         }
+
         .nav-menu {
             display: flex;
             list-style: none;
@@ -146,34 +150,37 @@
         .nav-link:hover {
             background-color: rgba(255, 255, 255, 0.2);
         }
-        
+
         .nav-link.active {
             background-color: rgba(255, 255, 255, 0.3);
         }
+
         @media (max-width: 768px) {
             .video-grid {
                 grid-template-columns: repeat(2, 1fr) !important;
                 gap: 12px !important;
             }
+
             .top-nav {
-                display: none !important; 
+                display: none !important;
             }
         }
-        .header-banner__inner{
-			position: relative;
-			top: 50%;
-			transform: translateY(-60%);
-			z-index: 1;
-			max-width: 1160px;
+
+        .header-banner__inner {
+            position: relative;
+            top: 50%;
+            transform: translateY(-60%);
+            z-index: 1;
+            max-width: 1160px;
             margin: 0 auto;
-		}
-        
+        }
+
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
             gap: 20px;
         }
-        
+
         .video-card {
             background-color: #fff;
             border: 1px solid #e5e9ef;
@@ -183,21 +190,21 @@
             transition: transform 0.3s;
             --cursor: pointer;
         }
-        
+
         .video-card:hover {
             --transform: translateY(-5px);
         }
-        
+
         .video-card b {
-           margin-right: 4px;
-       }
-        
+            margin-right: 4px;
+        }
+
         .video-card:hover b {
             --transform: translateY(-5px);
             transition: color 0.2s ease;
             color: #fb7299;
         }
-        
+
         .video-thumbnail {
             position: relative;
             width: 100%;
@@ -205,7 +212,7 @@
             overflow: hidden;
             cursor: pointer;
         }
-        
+
         .video-thumbnail img {
             position: absolute;
             top: 0;
@@ -215,51 +222,53 @@
             object-fit: cover;
             cursor: pointer;
         }
-        
+
         .video-info {
             padding: 15px;
         }
-        
+
         .video-title {
             color: #222222;
             font-size: 12px;
             --font-weight: bold;
             margin-bottom: 10px;
             display: -webkit-box;
-								  
+
             -webkit-box-orient: vertical;
             overflow: hidden;
             height: 28px;
             cursor: pointer;
             transition: color 0.3s;
         }
-        
+
         .video-title:hover {
             color: rgb(0, 174, 236) !important;
         }
-        
+
         .video-meta {
             display: flex;
             align-items: center;
             color: #99a2aa;
             font-size: 12px;
         }
+
         .video-meta span {
             display: flex;
             align-items: center;
             width: 90px;
         }
+
         .video-owner {
             color: #99a2aa;
             font-size: 12px;
             transition: color 0.3s;
             margin-top: 6px;
         }
-        
+
         .video-owner:hover {
             color: rgb(0, 174, 236) !important;
         }
-        
+
         .online-count {
             color: #000000;
             background-color: #e5e9ef;
@@ -272,7 +281,7 @@
             height: 30px;
             --font-weight: bold;
         }
-        
+
         .rank-badge {
             position: absolute;
             top: 10px;
@@ -288,49 +297,51 @@
             font-weight: bold;
             font-size: 16px;
         }
-        
-        .rank-1, .rank-2, .rank-3 {
+
+        .rank-1,
+        .rank-2,
+        .rank-3 {
             width: 35px;
             height: 35px;
             font-size: 18px;
         }
-        
+
         .rank-1 {
             background-color: #FFD700;
             color: #333;
         }
-        
+
         .rank-2 {
             background-color: #C0C0C0;
             color: #333;
         }
-        
+
         .rank-3 {
             background-color: #CD7F32;
             color: #333;
         }
-        
+
         .loading {
             text-align: center;
             padding: 50px;
             font-size: 18px;
             color: #666;
         }
-        
+
         .error {
             text-align: center;
             padding: 50px;
             font-size: 18px;
             color: #ff4d4f;
         }
-        
+
         .no-results {
             text-align: center;
             padding: 50px;
             font-size: 18px;
             color: #666;
         }
-        
+
         .bvid-link {
             color: #fb7299;
             text-decoration: none;
@@ -339,18 +350,18 @@
             display: block;
             transition: color 0.3s;
         }
-        
+
         .bvid-link:hover {
             color: rgb(0, 174, 236);
         }
-        
+
         .update-time {
             text-align: center;
             margin-top: 20px;
             color: #99a2aa;
             font-size: 14px;
         }
-        
+
         #back-to-top {
             position: fixed;
             bottom: 70px;
@@ -373,33 +384,39 @@
         #back-to-top.show {
             opacity: 1;
         }
-        
+
         #back-to-top:hover {
             transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* 悬停时阴影加深 */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            /* 悬停时阴影加深 */
         }
 
         .github-link {
             margin-top: 10px;
         }
-        
+
         .github-link a {
             color: black;
             text-decoration: none;
             opacity: 0.8;
         }
-        
+
         .github-link a:hover {
             opacity: 1;
         }
-
     </style>
 </head>
+
 <body>
     <div id="app" style="">
         <nav class="top-nav">
             <ul class="nav-menu">
-                <li class="nav-item"><a href="//www.bilibili.com" class="nav-link"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="zhuzhan-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.73252 2.67094C3.33229 2.28484 3.33229 1.64373 3.73252 1.25764C4.11291 0.890684 4.71552 0.890684 5.09591 1.25764L7.21723 3.30403C7.27749 3.36218 7.32869 3.4261 7.37081 3.49407H10.5789C10.6211 3.4261 10.6723 3.36218 10.7325 3.30403L12.8538 1.25764C13.2342 0.890684 13.8368 0.890684 14.2172 1.25764C14.6175 1.64373 14.6175 2.28484 14.2172 2.67094L13.364 3.49407H14C16.2091 3.49407 18 5.28493 18 7.49407V12.9996C18 15.2087 16.2091 16.9996 14 16.9996H4C1.79086 16.9996 0 15.2087 0 12.9996V7.49406C0 5.28492 1.79086 3.49407 4 3.49407H4.58579L3.73252 2.67094ZM4 5.42343C2.89543 5.42343 2 6.31886 2 7.42343V13.0702C2 14.1748 2.89543 15.0702 4 15.0702H14C15.1046 15.0702 16 14.1748 16 13.0702V7.42343C16 6.31886 15.1046 5.42343 14 5.42343H4ZM5 9.31747C5 8.76519 5.44772 8.31747 6 8.31747C6.55228 8.31747 7 8.76519 7 9.31747V10.2115C7 10.7638 6.55228 11.2115 6 11.2115C5.44772 11.2115 5 10.7638 5 10.2115V9.31747ZM12 8.31747C11.4477 8.31747 11 8.76519 11 9.31747V10.2115C11 10.7638 11.4477 11.2115 12 11.2115C12.5523 11.2115 13 10.7638 13 10.2115V9.31747C13 8.76519 12.5523 8.31747 12 8.31747Z" fill="currentColor"></path></svg><span> 首页</span></a></li>
+                <li class="nav-item"><a href="//www.bilibili.com" class="nav-link"><svg width="18" height="18"
+                            viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="zhuzhan-icon">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M3.73252 2.67094C3.33229 2.28484 3.33229 1.64373 3.73252 1.25764C4.11291 0.890684 4.71552 0.890684 5.09591 1.25764L7.21723 3.30403C7.27749 3.36218 7.32869 3.4261 7.37081 3.49407H10.5789C10.6211 3.4261 10.6723 3.36218 10.7325 3.30403L12.8538 1.25764C13.2342 0.890684 13.8368 0.890684 14.2172 1.25764C14.6175 1.64373 14.6175 2.28484 14.2172 2.67094L13.364 3.49407H14C16.2091 3.49407 18 5.28493 18 7.49407V12.9996C18 15.2087 16.2091 16.9996 14 16.9996H4C1.79086 16.9996 0 15.2087 0 12.9996V7.49406C0 5.28492 1.79086 3.49407 4 3.49407H4.58579L3.73252 2.67094ZM4 5.42343C2.89543 5.42343 2 6.31886 2 7.42343V13.0702C2 14.1748 2.89543 15.0702 4 15.0702H14C15.1046 15.0702 16 14.1748 16 13.0702V7.42343C16 6.31886 15.1046 5.42343 14 5.42343H4ZM5 9.31747C5 8.76519 5.44772 8.31747 6 8.31747C6.55228 8.31747 7 8.76519 7 9.31747V10.2115C7 10.7638 6.55228 11.2115 6 11.2115C5.44772 11.2115 5 10.7638 5 10.2115V9.31747ZM12 8.31747C11.4477 8.31747 11 8.76519 11 9.31747V10.2115C11 10.7638 11.4477 11.2115 12 11.2115C12.5523 11.2115 13 10.7638 13 10.2115V9.31747C13 8.76519 12.5523 8.31747 12 8.31747Z"
+                                fill="currentColor"></path>
+                        </svg><span> 首页</span></a></li>
                 <li class="nav-item"><a href="//www.bilibili.com/anime" class="nav-link"> 番剧</a></li>
                 <li class="nav-item"><a href="//live.bilibili.com" class="nav-link"> 直播</a></li>
             </ul>
@@ -408,54 +425,59 @@
                 <li class="nav-item"><a href="//www.bilibili.com/history" class="nav-link">历史</a></li>
             </ul>
         </nav>
-        <div class="header-banner__inner"><a href="//www.bilibili.com" class="inner-logo"><img class="logo-img" alt="B站 b站" width="162" height="78" src="./logo.png"></a></div>
+        <div class="header-banner__inner"><a href="//www.bilibili.com" class="inner-logo"><img class="logo-img"
+                    alt="B站 b站" width="162" height="78" src="./logo.png"></a></div>
     </div>
-	<div class="container">
+    <div class="container">
         <div class="controls">
             <div class="b-head online">
-            <span class="b-head-i"></span>
-            <span class="b-head-t">观看列表</span>
-            <span class="b-head-desc">根据稿件网页端的观看情况，定时更新</span>
+                <span class="b-head-i"></span>
+                <span class="b-head-t">观看列表</span>
+                <span class="b-head-desc">根据稿件网页端的观看情况，定时更新</span>
             </div>
             <input type="text" class="search-box" placeholder="搜索视频标题或UP主...">
         </div>
-        
+
         <div id="video-container" class="video-grid">
             <!-- 视频卡片将通过JavaScript动态生成 -->
         </div>
-        <div id="back-to-top" title="返回顶部"><img class=""  width="25" height="25" src="./icons8.png"></div>
+        <div id="back-to-top" title="返回顶部"><img class="" width="25" height="25" src="./icons8.png"></div>
         <div class="update-time">
             数据最后<span id="update-time">更新时间: 2025/04/22 04:09:45</span>
-			<p class="subtitle">此页面基于以下开源项目：</p>
+            <p class="subtitle">此页面基于以下开源项目：</p>
             <p class="github-link">
-				<a href="https://github.com/palxiao/bilibili-banner/tree/main" target="_blank">
+                <a href="https://github.com/palxiao/bilibili-banner/tree/main" target="_blank">
                     <svg height="24" width="24" viewBox="0 0 16 16" style="vertical-align: middle;">
-                        <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                        <path fill="currentColor"
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                        </path>
                     </svg>
                     <b>bilibili-banner</b>
                 </a>
-				<span>|</span>
+                <span>|</span>
                 <a href="https://github.com/nbt0/bilibili-online-ranking" target="_blank">
                     <svg height="24" width="24" viewBox="0 0 16 16" style="vertical-align: middle;">
-                        <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                        <path fill="currentColor"
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                        </path>
                     </svg>
                     <b>bilibili-online-ranking</b>
                 </a>
             </p>
         </div>
     </div>
-    
+
     <script>
         // 获取DOM元素
         const videoContainer = document.getElementById('video-container');
         const sortButtons = document.querySelectorAll('.sort-btn');
         const searchBox = document.querySelector('.search-box');
-        
+
         // 存储视频数据
         let videosData = [];
         let currentSort = 'count';
         let searchTerm = '';
-        
+
         // 加载JSON数据
         async function loadData() {
             try {
@@ -463,10 +485,10 @@
                 if (!response.ok) {
                     throw new Error('无法加载数据，请确保data.json文件存在且格式正确');
                 }
-                
+
                 // 获取data.json的最后修改时间
                 const lastModified = response.headers.get('last-modified');
-                const updateTime = lastModified 
+                const updateTime = lastModified
                     ? new Date(lastModified).toLocaleString('zh-CN', {
                         year: 'numeric',
                         month: '2-digit',
@@ -477,9 +499,9 @@
                         hour12: false
                     })
                     : '未知';
-                
+
                 const data = await response.json();
-                
+
                 // 将对象转换为数组并添加BV号
                 videosData = Object.entries(data).map(([bvid, info]) => {
                     // 确保pic字段使用https协议
@@ -491,12 +513,12 @@
                         ...info
                     };
                 });
-                
+
                 document.getElementById('update-time').textContent = updateTime;
-                
+
                 // 初始排序
                 sortVideos(currentSort);
-                
+
                 // 渲染视频
                 renderVideos();
             } catch (error) {
@@ -504,11 +526,11 @@
                 console.error('加载数据失败:', error);
             }
         }
-        
+
         // 排序视频
         function sortVideos(sortBy) {
             currentSort = sortBy;
-            
+
             switch (sortBy) {
                 case 'count':
                     videosData.sort((a, b) => b.count_num - a.count_num);
@@ -517,7 +539,7 @@
                 //     videosData.sort((a, b) => a.title.localeCompare(b.title, 'zh-CN'));
                 //     break;
             }
-            
+
             // 更新排序按钮状态
             sortButtons.forEach(btn => {
                 if (btn.dataset.sort === sortBy) {
@@ -527,35 +549,35 @@
                 }
             });
         }
-        
+
         // 过滤视频
         function filterVideos() {
             if (!searchTerm) {
                 return videosData;
             }
-            
+
             const term = searchTerm.toLowerCase();
-            return videosData.filter(video => 
-                video.title.toLowerCase().includes(term) || 
+            return videosData.filter(video =>
+                video.title.toLowerCase().includes(term) ||
                 video.owner.toLowerCase().includes(term)
             );
         }
-        
+
         // 渲染视频列表
         function renderVideos() {
             const filteredVideos = filterVideos();
-            
+
             if (filteredVideos.length === 0) {
                 videoContainer.innerHTML = '<div class="no-results">没有找到匹配的视频</div>';
                 return;
             }
-            
+
             let html = '';
-            
+
             filteredVideos.forEach((video, index) => {
                 const rankClass = index < 3 ? `rank-${index + 1}` : '';
                 const coverUrl = video.pic || 'https://i0.hdslb.com/bfs/archive/67db4a6eae398c309244e74f6e85ae8d813bd7c9.jpg';
-                
+
                 html += `
                     <div class="video-card" onclick="window.open('https://www.bilibili.com/video/${video.bvid}', '_blank')">
                         <div class="video-thumbnail">
@@ -587,10 +609,10 @@
                     </div>
                 `;
             });
-            
+
             videoContainer.innerHTML = html;
         }
-        
+
         // 事件监听
         sortButtons.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -598,7 +620,7 @@
                 renderVideos();
             });
         });
-        
+
         searchBox.addEventListener('input', (e) => {
             searchTerm = e.target.value;
             renderVideos();
@@ -611,20 +633,21 @@
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
-            backToTopBtn.classList.add('show');
+                backToTopBtn.classList.add('show');
             } else {
-            backToTopBtn.classList.remove('show');
+                backToTopBtn.classList.remove('show');
             }
         });
-        
+
         backToTopBtn.addEventListener('click', () => {
             loadData();
             window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+                top: 0,
+                behavior: 'smooth'
             });
         });
     </script>
 
 </body>
+
 </html>
